@@ -1,5 +1,5 @@
-import glob
-import os
+from glob import glob
+from os import rename
 
 # Set src_path to be the directory containing the files you want to rename.
 #   use double backslashes (\\) as seperator, must include the seperator at the end
@@ -28,7 +28,7 @@ count = 0
 # Below this line is the actual code that executes.  Don't change it unless you know Python and want to customize it.
 # -------------------------------------------------------------------------------------------------------------------
 
-for file in glob.glob(f"{src_path}*.{src_extension}"):
+for file in glob(f"{src_path}*.{src_extension}"):
     # Grab the extension of the file being renamed to be reused in the next statement.
     #   This is done so we can use wildcards in the pattern matching without fouling up the renamed file.
     dest_extension = file.split(".")[-1]
@@ -45,5 +45,5 @@ for file in glob.glob(f"{src_path}*.{src_extension}"):
     count += 1
 
     # Rename the file
-    os.rename(file, newFile)
+    rename(file, newFilename)
 
